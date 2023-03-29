@@ -2,13 +2,9 @@ from . import bot
 import threading
 from telebot import util
 #from telebot.util.update_types import message,callback_query,my_chat_member,chat_member,chat_join_request
-import apscheduler
+#import apscheduler
 admin='741728025'
 from hanlder import welcome_handler,plan_handler,buy_handler,joined_handler,back,conntact,approve_or_reject,admin_handler,tesks,status,chat_member
-from apscheduler.schedulers.background import BackgroundScheduler
-from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-
-job_stores={'defualt':SQLAlchemyJobStore(url="mysql://root:H@r$hit1@localhost:3306/subscription", tablename="jobs")}
 
 if __name__=="__main__":
     bot.register_message_handler(welcome_handler.welcome,commands=['start'],pass_bot=True)
@@ -30,9 +26,7 @@ if __name__=="__main__":
     bot.register_chat_member_handler(callback=chat_member.chat_member,pass_bot=True)
     bot.register_callback_query_handler(joined_handler.joined,func=lambda CallbackQuery:CallbackQuery.data.split("-")[0]=="joined",pass_bot=True)
     bot.register_callback_query_handler(approve_or_reject.reject,func=lambda CallbackQuery:CallbackQuery.data.split("-")[0]=="reject",pass_bot=True)
-    schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/Kolkata")
-    schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='21',minute='36')
-    x=threading.Thread(target=schedule.start )
-    x.start()
-    print(schedule.get_jobs())
+    #schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/Kolkata")
+    #schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='21',minute='36')
+    #print(schedule.get_jobs())
     bot.infinity_polling(allowed_updates=['message','callback_query','my_chat_member','chat_member'])
