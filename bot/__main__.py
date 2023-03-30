@@ -5,7 +5,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from hanlder import tesks
 
-admin='741728025'
+#admin='741728025'
+admin='1869901487'
 
 if __name__=="__main__":
     from register_handlers import register

@@ -1,7 +1,8 @@
 from telebot import TeleBot
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 from models import user,payment
-admin='741728025'
+#admin='741728025'
+admin='1869901487'
 def buy(query:CallbackQuery,bot:TeleBot):
     bot.delete_message(chat_id=query.from_user.id ,message_id=query.message.id)
     data=query.data.split("-")
