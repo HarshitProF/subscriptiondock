@@ -1,7 +1,7 @@
 import mysql.connector
 class history:
     def __init__(self):
-        self.conn=mysql.connector.connect(host="localhost",user="root",password="H@r$hit1",database="subscription")
+        self.conn=mysql.connector.connect(host="us-cdbr-east-06.cleardb.net",user="b26ed14e9970fb",password="e09e3491",database="heroku_062a08291def40a")
         self.cursor=self.conn.cursor()
     def add_data(self,owner,plan,price,validity,buy_date):
         values=(owner,plan,price,validity,buy_date)
