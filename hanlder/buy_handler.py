@@ -14,6 +14,7 @@ def get_hash(message:Message,bot,price,plan,validity):
     if len(message.text)<63:
         again1=bot.send_message(message.from_user.id ,text="Invalid Transaction hash/id, Send again")
         bot.register_next_step_handler(again1,callback=get_hash,plan=plan,price=price,validity=validity,bot=bot)
+        return
     try:
         result=user.user().get_user_by_telegram_id(telegram_id=message.from_user.id)
     except Exception as e:
