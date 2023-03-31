@@ -1,5 +1,6 @@
 from telebot.types import CallbackQuery
 from telebot import TeleBot
+admin='1869901487'
 # joined callback query
 def joined(query:CallbackQuery,bot:TeleBot):
     print(query)

@@ -1,5 +1,6 @@
 from telebot import TeleBot
 from telebot.types import CallbackQuery,KeyboardButton,ReplyKeyboardMarkup
+admin='1869901487'
 def welcome_key():
     keys=["Plans","Status","Contact Support"]
     buttons=[KeyboardButton(k) for k in keys]

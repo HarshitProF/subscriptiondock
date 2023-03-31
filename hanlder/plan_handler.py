@@ -1,6 +1,7 @@
 from telebot import TeleBot
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 from models import plans
+admin='1869901487'
 
 # inline buttons for plans
 def plans_buttons():

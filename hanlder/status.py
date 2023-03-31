@@ -1,6 +1,7 @@
 from telebot import TeleBot
 from telebot.types import InlineKeyboardButton,InlineKeyboardMarkup,Message
 from models import user
+admin='1869901487'
 def status(message:Message,bot:TeleBot):
     try:
         result=user.user().get_user_by_telegram_id(message.from_user.id)

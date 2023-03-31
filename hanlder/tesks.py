@@ -1,5 +1,6 @@
 from models import user
 from datetime import date,timedelta
+admin='1869901487'
 chat_id='-1001988279635'
 def reminder(bot):
     try:

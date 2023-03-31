@@ -1,6 +1,7 @@
 from telebot import TeleBot 
 from telebot.types import Message,ReplyKeyboardMarkup,KeyboardButton
 from models import user
+admin='1869901487'
 #welcome keyboard
 def welcome_key():
     keys=["Plans","Status","Contact Support"]
