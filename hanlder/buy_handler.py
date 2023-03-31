@@ -26,7 +26,7 @@ def get_hash(message:Message,bot,price,plan,validity):
             bot.send_message(message.from_user.id , text="Transaction hash/id already used")
             print(e)
         else:
-            text=F"the user {message.from_user.id} and\n\n username :- @{result['username']} \n\nName :- {result['fanme']} {result['lname']} wanted to buy the following plan \n price is {price } \n plan is {plan} \n validity is {validity}\n\n Hash is :- {message.text}"
+            text=F"the user {message.from_user.id} and\n\n username :- @{result['username']} \n\nName :- {result['fname']} {result['lname']} wanted to buy the following plan \n price is {price } \n plan is {plan} \n validity is {validity}\n\n Hash is :- {message.text}"
             #send this to admin for approve or reject
             if validity=="LifeTime":
                 validity=800
