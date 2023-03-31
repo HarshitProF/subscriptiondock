@@ -1,6 +1,7 @@
 from telebot import TeleBot
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 from models import user,payment
+
 #admin='741728025'
 admin='1869901487'
 def buy(query:CallbackQuery,bot:TeleBot):
@@ -11,8 +12,8 @@ def buy(query:CallbackQuery,bot:TeleBot):
     bot.register_next_step_handler(message_buy,callback=get_hash,plan=data[1],price=data[2],validity=data[3],bot=bot)
 def get_hash(message:Message,bot,price,plan,validity):
     if len(message.text)<32:
-        bot.send_message(message.from_user.id ,text="Invalid Transaction hash/id")
-        return
+        again1=bot.send_message(message.from_user.id ,text="Invalid Transaction hash/id, Send again")
+        bot.register_next_step_handler(again1,callback=get_hash,plan=plan,price=price,validity=validity,bot=bot)
     try:
         result=user.user().get_user_by_telegram_id(telegram_id=message.from_user.id)
     except Exception as e:
@@ -25,7 +26,7 @@ def get_hash(message:Message,bot,price,plan,validity):
             bot.send_message(message.from_user.id , text="Transaction hash/id already used")
             print(e)
         else:
-            text=F"the user {message.from_user.id} wanted to buy the following plan \n price is {price } \n plan is {plan} \n validity is {validity}\n\n Hash is :- {message.text}"
+            text=F"the user {message.from_user.id} and\n\n username :- @{result['username']} \n\nName :- {result['fanme']} {result['lname']} wanted to buy the following plan \n price is {price } \n plan is {plan} \n validity is {validity}\n\n Hash is :- {message.text}"
             #send this to admin for approve or reject
             if validity=="LifeTime":
                 validity=800

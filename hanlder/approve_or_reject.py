@@ -25,7 +25,7 @@ def approve(query:CallbackQuery,bot:TeleBot):
         except Exception as e:
             raise Exception (e)
         else:
-            bot.send_message(int(admin),text=f"User_id :- {result_user['telegram_id']}\n\n Name :-{result_user['fname']} {result_user['lname']}\n\n Username :-{result_user['username']}\n\n {validity} Days membership activated")
+            bot.send_message(int(admin),text=f"User_id :- {result_user['telegram_id']}\n\n Name :-{result_user['fname']} {result_user['lname']}\n\n Username :- @{result_user['username']}\n\n {validity} Days membership activated")
             #bot.send_message(data[1],text=f"Congratulations admin approved the request",reply_markup=join_button(join_link=link.invite_link))
             if result_user['end_date']:
                 if curdate<=result_user['end_date'] :
