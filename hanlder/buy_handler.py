@@ -11,7 +11,7 @@ def buy(query:CallbackQuery,bot:TeleBot):
     message_buy=bot.send_message(query.from_user.id,text=text)
     bot.register_next_step_handler(message_buy,callback=get_hash,plan=data[1],price=data[2],validity=data[3],bot=bot)
 def get_hash(message:Message,bot,price,plan,validity):
-    if len(message.text)<32:
+    if len(message.text)<63:
         again1=bot.send_message(message.from_user.id ,text="Invalid Transaction hash/id, Send again")
         bot.register_next_step_handler(again1,callback=get_hash,plan=plan,price=price,validity=validity,bot=bot)
     try:
