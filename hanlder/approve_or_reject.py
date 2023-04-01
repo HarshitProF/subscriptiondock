@@ -1,20 +1,22 @@
 from datetime import date,timedelta
 from models import user,history_model
 import json
+import os
 from telebot import TeleBot
 #admin='741728025'
-admin='1869901487'
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 def approve(query:CallbackQuery,bot:TeleBot):
     bot.delete_message(chat_id=query.from_user.id ,message_id=query.message.id)
     data=query.data.split('-')
     print(data)
     try:
-        bot.unban_chat_member(chat_id='-1001988279635',user_id=data[1],only_if_banned=True)
+        bot.unban_chat_member(chat_id=chat_id,user_id=data[1],only_if_banned=True)
     except  Exception as e:
         print(e)
     try:
-        link=bot.create_chat_invite_link(chat_id='-1001988279635',member_limit=1)
+        link=bot.create_chat_invite_link(chat_id=chat_id,member_limit=1)
     except Exception as e:
         print(e)
     else:

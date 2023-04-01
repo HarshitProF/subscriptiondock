@@ -1,8 +1,9 @@
 from telebot import TeleBot
+import os
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 from models import user,plans
-chat_id="-1001988279635"
-admin='741728025'
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 def all_users(message:Message,bot:TeleBot):
     try:
         results=user.user().get_all_user()

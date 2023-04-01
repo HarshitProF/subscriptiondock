@@ -1,7 +1,8 @@
 import mysql.connector
+import os
 class link_model:
     def __init__(self):
-        self.conn=mysql.connector.connect(host="us-cdbr-east-06.cleardb.net",user="b26ed14e9970fb",password="e09e3491",database="heroku_062a08291def40a")
+        self.conn=mysql.connector.connect(host=os.getenv('HOST',default=None),user=os.getenv('USER',default=None),password=os.getenv('PWD',default=None),database=os.getenv('DB',default=None))
         self.cursor=self.conn.cursor()
     def insert_link(self,invite_link):
         query="insert into invite_link (link) values (%s);"

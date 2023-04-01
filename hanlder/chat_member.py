@@ -1,7 +1,10 @@
 from telebot import TeleBot
+import os
 from telebot.types import Message,ChatMemberUpdated,ChatJoinRequest
-chat_id='-1001988279635'
-admin='1869901487'
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
+
+
 from models import link
 def chat_member(message:ChatMemberUpdated,bot:TeleBot):
     print(message.invite_link)

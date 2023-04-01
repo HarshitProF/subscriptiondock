@@ -1,4 +1,6 @@
-admin='1869901487'
+import os
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 from hanlder import welcome_handler,plan_handler,buy_handler,joined_handler,back,conntact,approve_or_reject,admin_handler,tesks,status,chat_member
 class register:
     def __init__(self):

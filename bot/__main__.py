@@ -1,12 +1,14 @@
 from . import bot
 import threading
+import os
 import apscheduler
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from hanlder import tesks
 
 #admin='741728025'
-admin='1869901487'
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 
 if __name__=="__main__":
     from register_handlers import register

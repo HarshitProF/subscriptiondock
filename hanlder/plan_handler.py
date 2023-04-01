@@ -1,7 +1,9 @@
 from telebot import TeleBot
 from telebot.types import Message,InlineKeyboardButton,InlineKeyboardMarkup,CallbackQuery
 from models import plans
-admin='1869901487'
+import os
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 
 # inline buttons for plans
 def plans_buttons():

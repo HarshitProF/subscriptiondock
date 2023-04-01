@@ -1,3 +1,7 @@
 from telebot import TeleBot
-apikey="5830939991:AAHq6vi4dkZgSs8NN0jEpLHFrnw-APuhCLk"
+import os
+apikey=os.getenv('TOKEN',default=None)
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
+print(apikey)
 bot=TeleBot(apikey)

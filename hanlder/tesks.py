@@ -1,7 +1,8 @@
 from models import user
 from datetime import date,timedelta
-admin='1869901487'
-chat_id='-1001988279635'
+import os
+chat_id=os.getenv('CHAT_ID',default=None)
+admin=os.getenv('ADMIN_ID',default=None)
 def reminder(bot):
     try:
         users=user.user().get_all_user()
