@@ -12,7 +12,7 @@ admin=os.getenv('ADMIN_ID',default=None)
 import datetime
 import os
 from urllib.parse import urlparse
-url=urlparse(os.getenv('CLEARDB_DATABASE_URL'))
+url=str(os.getenv('CLEARDB_DATABASE_URL'))
 if __name__=="__main__":
     print(datetime.datetime.now())
     from register_handlers import register
