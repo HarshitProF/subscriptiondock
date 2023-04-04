@@ -1,6 +1,6 @@
 import mysql.connector
 import os
-from urlparse import urlparse
+from urllib.parse import urlparse
 resu=urlparse(os.getenv('CLEARDB_DATABASE_URL'))
 print(resu)
 
