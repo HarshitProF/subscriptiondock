@@ -1,8 +1,10 @@
 import mysql.connector
 import os
+from urllib.parse import urlparse
+resu=urlparse(os.getenv('CLEARDB_DATABASE_URL'))
 class payment_model:
     def __init__(self):
-        self.conn=mysql.connector.connect(host=os.getenv('HOST',default=None),user=os.getenv('USER',default=None),password=os.getenv('PAS_W',default=None),database=os.getenv('DB',default=None))
+        self.conn=mysql.connector.connect(host=resu.hostname,user=resu.username,password=resu.password,database=os.getenv('DB',default=None))
         self.cursor=self.conn.cursor()
     def insert_payment(self,transaction_hash,owner):
         query="insert into payment (transactions_hash,owner) values (%s,%s);"

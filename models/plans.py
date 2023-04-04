@@ -1,8 +1,10 @@
 import mysql.connector
 import os
+from urllib.parse import urlparse
+resu=urlparse(os.getenv('CLEARDB_DATABASE_URL'))
 class plans:
     def __init__(self):
-        self.conn=mysql.connector.connect(host=os.getenv('HOST',default=None),user=os.getenv('USER',default=None),password=os.getenv('PAS_W',default=None),database=os.getenv('DB',default=None))
+        self.conn=mysql.connector.connect(host=resu.hostname,user=resu.username,password=resu.password,database=os.getenv('DB',default=None))
         self.cursor=self.conn.cursor()
     def add_plan(self,plan,price ,validity):
         query="insert into plans (plan,price,validity) values (%s,%s,%s);"
