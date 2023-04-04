@@ -11,11 +11,13 @@ chat_id=os.getenv('CHAT_ID',default=None)
 admin=os.getenv('ADMIN_ID',default=None)
 import datetime
 import os
+from urllib.parse import parse
+url=parse(os.getenv('CLEARDB_DATABASE_URL'))
 if __name__=="__main__":
     print(datetime.datetime.now())
     from register_handlers import register
     register.register().add(bot)
-    job_stores={'defualt':SQLAlchemyJobStore(url=os.getenv('CLEARDB_DATABASE_URL'), tablename="jobs")}
+    job_stores={'defualt':SQLAlchemyJobStore(url=url, tablename="jobs")}
     schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/kolkata")
     schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='16',minute='52')
     schedule.start()
