@@ -2,7 +2,7 @@ import mysql.connector
 import os
 class user:
     def __init__(self):
-        print(f"{os.getenv('HOST',default=None)}  {os.getenv('USER',default=None)}  {os.getenv('PWD',default=None)}  {os.getenv('DB',default=None)}")
+        print(f"{os.getenv('HOST',default=None)}  {os.getenv('USER',default=None)}  {os.getenv('PWD')}  {os.getenv('DB',default=None)}")
         self.conn=mysql.connector.connect(host=os.getenv('HOST',default=None),user=os.getenv('USER',default=None),password=os.getenv('PWD',default=None),database=os.getenv('DB',default=None))
         self.cursor=self.conn.cursor()
     def insert_user(self,telegram_id,user_status,fname,lname,username):
