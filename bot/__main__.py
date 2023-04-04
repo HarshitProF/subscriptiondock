@@ -19,7 +19,7 @@ if __name__=="__main__":
     register.register().add(bot)
     job_stores={'defualt':SQLAlchemyJobStore(url=url, tablename="jobs")}
     schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/kolkata")
-    schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='17',minute='4')
+    schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='17',minute='50')
     schedule.start()
     print(schedule.get_jobs())
     bot.infinity_polling(allowed_updates=['message','callback_query','my_chat_member','chat_member'])
