@@ -16,7 +16,7 @@ if __name__=="__main__":
     from register_handlers import register
     register.register().add(bot)
     job_stores={'defualt':SQLAlchemyJobStore(url="mysql://root:H@r$hit1@localhost:3306/subscription", tablename="jobs")}
-    schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Eastern time")
+    schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/kolkata")
     schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='12',minute='00')
     schedule.start()
     print(schedule.get_jobs())
