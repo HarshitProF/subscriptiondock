@@ -10,14 +10,14 @@ from hanlder import tesks
 chat_id=os.getenv('CHAT_ID',default=None)
 admin=os.getenv('ADMIN_ID',default=None)
 import datetime
-
+import os
 if __name__=="__main__":
     print(datetime.datetime.now())
     from register_handlers import register
     register.register().add(bot)
-    job_stores={'defualt':SQLAlchemyJobStore(url="mysql://b4f5081699b408:f77d9016@us-cdbr-east-06.cleardb.net/heroku_6c2ea1af21bcc50?reconnect=true", tablename="jobs")}
+    job_stores={'defualt':SQLAlchemyJobStore(url=os.getenv('CLEARDB_DATABASE_URL'), tablename="jobs")}
     schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/kolkata")
-    schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='16',minute='45')
+    schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='16',minute='52')
     schedule.start()
     print(schedule.get_jobs())
     bot.infinity_polling(allowed_updates=['message','callback_query','my_chat_member','chat_member'])
