@@ -7,7 +7,7 @@ print(resu)
 class user:
     def __init__(self):
         print(f"{os.getenv('HOST',default=None)}  {os.getenv('USER',default=None)}  {os.getenv('PAS_W')}  {os.getenv('DB',default=None)}")
-        self.conn=mysql.connector.connect(host=resu.host,user=resu.user,password=resu.password,database=resu.database)
+        self.conn=mysql.connector.connect(host=resu.hostname,user=resu.username,password=resu.password,database=os.getenv('DB',default=None))
         self.cursor=self.conn.cursor()
     def insert_user(self,telegram_id,user_status,fname,lname,username):
         query="insert into user (telegram_id ,user_status,fname,lname,username) values (%s,%s,%s,%s,%s);"
