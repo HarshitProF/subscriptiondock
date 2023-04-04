@@ -15,7 +15,7 @@ if __name__=="__main__":
     print(datetime.datetime.now())
     from register_handlers import register
     register.register().add(bot)
-    job_stores={'defualt':SQLAlchemyJobStore(url="mysql://root:H@r$hit1@localhost:3306/subscription", tablename="jobs")}
+    job_stores={'defualt':SQLAlchemyJobStore(url="mysql://b4f5081699b408:f77d9016@us-cdbr-east-06.cleardb.net/heroku_6c2ea1af21bcc50?reconnect=true", tablename="jobs")}
     schedule=BackgroundScheduler(job_stores=job_stores,demon=True,timezone="Asia/kolkata")
     schedule.add_job(func=tesks.reminder ,kwargs={'bot':bot},trigger='cron',hour='16',minute='45')
     schedule.start()
