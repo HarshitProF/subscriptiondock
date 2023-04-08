@@ -1,7 +1,7 @@
 from telebot import TeleBot
 from telebot.types import Message
 import os
-admins=["@jhonnyCrypto","@LagannCrypto","@ZachCryptoAD","AlexRoseAdmin","@CHIEF099"]
+admins=["@jhonnyCrypto","@LogannCrypto","@ZachCryptoAD","AlexRoseAdmin","@CHIEF099"]
 chat_id=os.getenv('CHAT_ID',default=None)
 admin=os.getenv('ADMIN_ID',default=None)
 def send_contact(message:Message,bot:TeleBot):
