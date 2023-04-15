@@ -7,7 +7,7 @@ WORKDIR /bot
 # Copy the application files into the working directory
 COPY . /bot
 
-EXPOSE $PORT
+EXPOSE 4000 
 
 # Install the application dependencies
 RUN pip install -r requirements.txt
