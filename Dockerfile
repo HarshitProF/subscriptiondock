@@ -7,6 +7,8 @@ WORKDIR /bot
 # Copy the application files into the working directory
 COPY . /bot
 
+EXPOSE 80/tcp
+
 # Install the application dependencies
 RUN pip install -r requirements.txt
 
