@@ -18,8 +18,8 @@ def chat_member(message:ChatMemberUpdated,bot:TeleBot):
             bot.ban_chat_member(chat_id=chat_id,user_id=message.new_chat_member.id)
         except Exception as e:
             print(e)
-    curdate=date.today()
     else:
+        curdate=date.today()
         if  (not required_user['end_date']) or (required_user['end_date']<curdate) :
             try:
                 bot.ban_chat_member(chat_id=chat_id,user_id=message.new_chat_member.id)
