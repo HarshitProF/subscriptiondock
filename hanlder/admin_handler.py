@@ -120,3 +120,15 @@ def delete_plans(query:CallbackQuery,bot:TeleBot):
         print(e)
     else:
         bot.send_message(query.from_user.id,text="Plan deleted successfully")
+# get user
+def get_user_by_id(message:Message,bot:TeleBot):
+    user_tele_id=bot.send_message(admin,text="send the telegram_id ")
+    bot.register_next_step_handler(user_tele_id,callback=get_user_id,bot=bot)
+def get_user_id(message:Message,bot):
+    data=message.text
+    try:
+        required_user=user.user().get_user_by_telegram_id(data)
+    except Exception as e:
+        bot.send_message(admin,text="user not found")
+    else:
+        bot.send_message(message.from_user.id,text="this is the following user",reply_markup=user_markup([required_user]))
