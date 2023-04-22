@@ -13,7 +13,8 @@ def chat_member(message:ChatMemberUpdated,bot:TeleBot):
     try:
         required_user=user.user().get_user_by_telegram_id(message.new_chat_member.id)
     except Exception as e:
-        dat=e.split("")
+        print(e.message)
+        dat=str(e).split("")
         print(dat)
         if dat[0]=="user":
             try:
