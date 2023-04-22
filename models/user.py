@@ -45,6 +45,23 @@ class user:
                 return {"user_id":result[0],"telegram_id":result[1],"user_status":result[2],"start_date":result[3],"end_date":result[4],"fname":result[5],"lname":result[6],"username":result[7]}
             if not result:
                 raise Exception("user not found")
+    def get_user_by_telegram_id2(self,telegram_id):
+        values=(telegram_id,)
+        query="select * from user where telegram_id=%s "
+        try:
+            self.cursor.execute(query,values)
+        except  Exception as e:
+            raise Exception(e)
+        else:
+            result=self.cursor.fetchone()
+            try:
+                self.conn.close()
+            except:
+                pass
+            if result:
+                return {"user_id":result[0],"telegram_id":result[1],"user_status":result[2],"start_date":result[3],"end_date":result[4],"fname":result[5],"lname":result[6],"username":result[7]}
+            if not result:
+                return result
     def get_user_by_telegram_id(self,telegram_id):
         values=(telegram_id,)
         query="select * from user where telegram_id=%s "
