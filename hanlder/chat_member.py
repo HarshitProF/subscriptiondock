@@ -13,16 +13,10 @@ def chat_member(message:ChatMemberUpdated,bot:TeleBot):
     try:
         required_user=user.user().get_user_by_telegram_id(message.new_chat_member.id)
     except Exception as e:
-        dat=str(e).split(" ")
-        print(dat)
-        if dat[0]=="user":
-            try:
-                bot.ban_chat_member(chat_id=chat_id,user_id=message.new_chat_member.user.id)
-            except Exception as e:
+        try:
+            bot.ban_chat_member(chat_id=chat_id,user_id=message.new_chat_member.user.id)
+        except Exception as e:
                 print(e)
-        else:
-            print("not user")
-            print(e)
     else:
 
         curdate=date.today()
