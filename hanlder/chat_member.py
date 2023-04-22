@@ -11,11 +11,11 @@ from models import link
 def chat_member(message:ChatMemberUpdated,bot:TeleBot):
     print(message.invite_link)
     try:
-        required_user=user.user().get_user_by_telegram_id2(message.new_chat_member.id)
+        required_user=user.user().get_user_by_telegram_id2(message.new_chat_member.user.id)
     except Exception as e:
         print(e)
     else:
-        
+
         if not required_user:
             try:
                 bot.ban_chat_member(chat_id=chat_id,user_id=message.new_chat_member.user.id)
