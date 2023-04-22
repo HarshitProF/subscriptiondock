@@ -141,7 +141,7 @@ def send_cvs(message:Message,bot:TeleBot):
     except Exception as e:
         print(e)
     data=pd.DataFrame(result)
-    towrite=io.BytesIO()
+    towrite=io.StringIO()
     data.to_csv(towrite)
     bot.send_document(admin,document=towrite)
         
