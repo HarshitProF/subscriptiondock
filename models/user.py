@@ -133,6 +133,19 @@ class user:
                 self.conn.close()
             except :
                 pass
+    def get_details(self):
+        query=""
+        try:
+            self.cursor.execute(query)
+        except Exception as e:
+            raise Exception(e)
+        else:
+            results=self.cursor.fetchall()
+            try:
+                self.conn.close()
+            except Exception as e:
+                print(e)
+            return results
         
 class user_method:
     def __init__(self):

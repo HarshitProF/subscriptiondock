@@ -10,6 +10,7 @@ class register:
         bot.register_message_handler(conntact.send_contact,func=lambda message : message.text=="Contact Support",pass_bot=True)
         bot.register_message_handler(admin_handler.all_users,commands=['all_users'],func=lambda message : message.from_user.id==int(admin),pass_bot=True)
         bot.register_message_handler(admin_handler.add_plan,commands=['add_plan'],func=lambda message : message.from_user.id==int(admin),pass_bot=True)
+        bot.register_message_handler(admin_handler.send_cvs,commands=['get_data'],func=lambda message : message.from_user.id==int(admin),pass_bot=True)
         bot.register_message_handler(admin_handler.get_plans,commands=['all_plans'],func=lambda message : message.from_user.id==int(admin),pass_bot=True)
         bot.register_message_handler(admin_handler.get_user_by_id,commands=['get_user'],func=lambda message : message.from_user.id==int(admin),pass_bot=True)
         bot.register_message_handler(plan_handler.send_plans,func=lambda message : message.text=="Plans",pass_bot=True)

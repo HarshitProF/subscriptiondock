@@ -132,3 +132,16 @@ def get_user_id(message:Message,bot):
         bot.send_message(admin,text="user not found")
     else:
         bot.send_message(message.from_user.id,text="this is the following user",reply_markup=user_markup([required_user]))
+# send data of all users:
+import pandas as pd
+import io
+def send_cvs(message:Message,bot:TeleBot):
+    try:
+        result=user.user().get_details()
+    except Exception as e:
+        print(e)
+    data=pd.DataFrame(result)
+    towrite=io.BytesIO()
+    df.to_excel(towrite)
+    bot.send_document(admin,document=towrite)
+        
