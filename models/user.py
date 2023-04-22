@@ -134,7 +134,7 @@ class user:
             except :
                 pass
     def get_details(self):
-        query=""
+        query="select   user_id,telegram_id ,user_status,start_date,end_date,fname,lname,username, user_history.plan,user_history.price,payment.transactions_hash from user Inner join user_history on user.user_id=user_history.owner inner join payment on user_history.owner=payment.owner "
         try:
             self.cursor.execute(query)
         except Exception as e:
