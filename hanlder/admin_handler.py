@@ -142,6 +142,6 @@ def send_cvs(message:Message,bot:TeleBot):
         print(e)
     data=pd.DataFrame(result)
     towrite=io.BytesIO()
-    df.to_excel(towrite)
+    data.to_excel(towrite)
     bot.send_document(admin,document=towrite)
         
