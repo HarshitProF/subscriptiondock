@@ -142,7 +142,7 @@ def send_cvs(message:Message,bot:TeleBot):
         print(e)
     data=pd.DataFrame(result)
     
-    new_csv=data.to_csv()
+    new_csv=data.to_csv(header=['user_id','telegram_id','user_status','start_date','end_date','lname','fname','username','plan','price','transaction_hash'])
     towrite=io.BytesIO(new_csv.encode())
     bot.send_document(admin,document=towrite)
         
