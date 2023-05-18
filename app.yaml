@@ -5,8 +5,8 @@ runtime_config :
     operating_system: "ubuntu18"
     runtime : 3.10.9
 env_variables :
-    'TOKEN': "6105586011:AAFQHwUUCmd9VEzDPtnQHJq4rEn1dpDtGOE"
-    'CHAT_ID': "-1001696317955"
+    'TOKEN': "5736319318:AAGpPs-RDQEvM8ddMDxr3Pe_hGAHJ0mLajQ"
+    'CHAT_ID': "-1001566254717"
     'ADMIN_ID': 1898694701
-    'CLEARDB_DATABASE_URL': "mysql://b1982e1056826f:99956a96@us-cdbr-east-06.cleardb.net/heroku_5fd9d176a6b06c9?reconnect=true"
-    'DB': "heroku_5fd9d176a6b06c9"
+    'CLEARDB_DATABASE_URL': "mysql://bb21cef07f09d9:b155dd29@us-cdbr-east-06.cleardb.net/heroku_c5f9162c03cc34d?reconnect=true"
+    'DB': "heroku_c5f9162c03cc34d"
