@@ -22,4 +22,5 @@ def send_contact(message:Message,bot:TeleBot):
     elif chat_id=="-1001566254717":
         bot.send_message(message.from_user.id,text=f"Please contact to admin {admins[1]}")
     else:
-        bot.send_message(message.from_user.id,text=f"Please contact to admin {admins[0]}")
+        pass
+        #bot.send_message(message.from_user.id,text=f"Please contact to admin {admins[0]}")
