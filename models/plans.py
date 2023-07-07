@@ -1,5 +1,7 @@
 import mysql.connector
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from urllib.parse import urlparse
 resu=urlparse(os.getenv('CLEARDB_DATABASE_URL'))
 class plans:

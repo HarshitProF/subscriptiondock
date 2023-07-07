@@ -2,6 +2,8 @@ from telebot import TeleBot
 from telebot.types import Message,ReplyKeyboardMarkup,KeyboardButton
 from models import user
 import os
+from dotenv import load_dotenv
+load_dotenv()
 chat_id=os.getenv('CHAT_ID',default=None)
 admin=os.getenv('ADMIN_ID',default=None)
 #welcome keyboard

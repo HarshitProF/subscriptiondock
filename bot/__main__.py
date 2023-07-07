@@ -5,6 +5,8 @@ import apscheduler
 from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
 from hanlder import tesks
+from dotenv import load_dotenv
+load_dotenv()
 
 #admin='741728025'
 chat_id=os.getenv('CHAT_ID',default=None)
